@@ -1,12 +1,25 @@
 import React from "react";
-import "./button.css";
+import "./button.scss";
+import { ButtonBase, ButtonDefaults, ButtonPrefix, IntButton } from "../types";
 
-export interface ButtonProps {
-  label: string;
-}
+const Button: React.FC<IntButton> = ({
+  block = false,
+  disabled = false,
+  label,
+  rounded = false,
+  size = ButtonDefaults.Size,
+  type = ButtonDefaults.Type
+}) => {
+  let className = `${ButtonBase} ${ButtonPrefix}${size} ${ButtonPrefix}${type}`;
 
-const Button = (props: ButtonProps) => {
-  return <button>{props.label}</button>;
+  if (block) className += ` ${ButtonPrefix}block`;
+  if (rounded) className += ` ${ButtonPrefix}rounded`;
+
+  return (
+    <button disabled={disabled} className={className}>
+      {label}
+    </button>
+  );
 };
 
 export default Button;

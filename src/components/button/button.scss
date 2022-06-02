@@ -1,0 +1,76 @@
+@use "sass:map";
+@import "../../scss/base.scss";
+
+button.paper-btn {
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  cursor: pointer;
+
+  @each $class in $classes {
+    &.paper-btn-#{$class} {
+      color: map-deep-get($colorMap, $class, "fontColor");
+      background-color: map-deep-get($colorMap, $class, "bgColor");
+      border-color: map-deep-get($colorMap, $class, "borderColor");
+      &:hover {
+        background-color: map-deep-get($colorMap, $class, "bgColorHover");
+        border-color: map-deep-get($colorMap, $class, "borderColorHover");
+      }
+    }
+  }
+
+  &.paper-btn-xs {
+    padding: 0.125rem 0.25rem;
+    font-size: 0.75rem;
+
+    &.paper-btn-rounded {
+      border-radius: 0.2rem;
+    }
+  }
+
+  &.paper-btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+
+    &.paper-btn-rounded {
+      border-radius: 0.2rem;
+    }
+  }
+
+  &.paper-btn-md {
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+
+    &.paper-btn-rounded {
+      border-radius: 0.25rem;
+    }
+  }
+
+  &.paper-btn-lg {
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+
+    &.paper-btn-rounded {
+      border-radius: 0.3rem;
+    }
+  }
+
+  &:disabled {
+    color: $disabledFontColor !important;
+    border: 1px solid $disabledBgColor !important;
+    background-color: $disabledBorderColor !important;
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &.paper-btn-block {
+    width: 100%;
+  }
+}

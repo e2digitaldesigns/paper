@@ -1,0 +1,96 @@
+@use "sass:map";
+// https://css-tricks.com/snippets/sass/deep-getset-maps/
+
+$primaryFontColor: white;
+$primaryBgColor: #0d6efd;
+$primaryBgColorHover: #0b5ed7;
+$primaryBorderColor: #0d6efd;
+$primaryBorderColorHover: #0a58ca;
+
+$secondaryFontColor: white;
+$secondaryBgColor: #6c757d;
+$secondaryBgColorHover: #5c636a;
+$secondaryBorderColor: #6c757d;
+$secondaryBorderColorHover: #565e64;
+
+$successFontColor: white;
+$successBgColor: #198754;
+$successBgColorHover: #157347;
+$successBorderColor: #198754;
+$successBorderColorHover: #146c43;
+
+$dangerFontColor: white;
+$dangerBgColor: #dc3545;
+$dangerBgColorHover: #bb2d3b;
+$dangerBorderColor: #dc3545;
+$dangerBorderColorHover: #b02a37;
+
+$warningFontColor: black;
+$warningBgColor: #ffc107;
+$warningBgColorHover: #ffca2c;
+$warningBorderColor: #ffc107;
+$warningBorderColorHover: #ffc720;
+
+$infoFontColor: black;
+$infoBgColor: #0dcaf0;
+$infoBgColorHover: #31d2f2;
+$infoBorderColor: #0dcaf0;
+$infoBorderColorHover: #25cff2;
+
+$disabledFontColor: #666666;
+$disabledBgColor: #999999;
+$disabledBorderColor: #cccccc;
+
+$colorMap: (
+  primary: (
+    fontColor: $primaryFontColor,
+    bgColor: $primaryBgColor,
+    bgHover: $primaryBgColorHover,
+    borderColor: $primaryBorderColor,
+    borderHover: $primaryBorderColorHover
+  ),
+  secondary: (
+    fontColor: $secondaryFontColor,
+    bgColor: $secondaryBgColor,
+    bgHover: $secondaryBgColorHover,
+    borderColor: $secondaryBorderColor,
+    borderHover: $secondaryBorderColorHover
+  ),
+  success: (
+    fontColor: $successFontColor,
+    bgColor: $successBgColor,
+    bgHover: $successBgColorHover,
+    borderColor: $successBorderColor,
+    borderHover: $successBorderColorHover
+  ),
+  danger: (
+    fontColor: $dangerFontColor,
+    bgColor: $dangerBgColor,
+    bgHover: $dangerBgColorHover,
+    borderColor: $dangerBorderColor,
+    borderHover: $dangerBorderColorHover
+  ),
+  warning: (
+    fontColor: $warningFontColor,
+    bgColor: $warningBgColor,
+    bgHover: $warningBgColorHover,
+    borderColor: $warningBorderColor,
+    borderHover: $warningBorderColorHover
+  ),
+  info: (
+    fontColor: $infoFontColor,
+    bgColor: $infoBgColor,
+    bgHover: $infoBgColorHover,
+    borderColor: $infoBorderColor,
+    borderHover: $infoBorderColorHover
+  )
+);
+
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}
+
+$classes: "primary", "secondary", "success", "danger", "warning", "info";

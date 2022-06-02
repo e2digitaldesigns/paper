@@ -1,23 +1,67 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import Button from "./button";
+import { PaperClasses, PaperSizes } from "../types";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "Paper/Button",
-  component: Button
+  title: "Paper/Buttons",
+  component: Button,
+  argTypes: {
+    size: {
+      control: { type: "radio" },
+      options: ["xs", "sm", "md", "lg"],
+      mapping: ["xs", "sm", "md", "lg"],
+      labels: {
+        sm: "small",
+        md: "Medium",
+        lg: "Large"
+      }
+    },
+    type: {
+      control: { type: "select" },
+      options: [
+        "primary-btn",
+        "secondary-btn",
+        "success-btn",
+        "danger-btn",
+        "warning-btn",
+        "info-btn"
+      ]
+    },
+
+    rounded: { control: "boolean" },
+
+    disabled: { control: "boolean" },
+
+    block: { control: "boolean" }
+  }
 } as ComponentMeta<typeof Button>;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Button> = args => <Button {...args} />;
 
-export const HelloWorld = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-HelloWorld.args = {
-  label: "Hello world!"
+export const Primary = Template.bind({});
+Primary.args = {
+  disabled: false,
+  label: "Primary Button",
+  size: PaperSizes.Small,
+  type: PaperClasses.Primary,
+  rounded: true
 };
 
-export const ClickMe = Template.bind({});
-ClickMe.args = {
-  label: "Click me!"
+export const Secondary = Template.bind({});
+Secondary.args = {
+  disabled: false,
+  label: "Secondary Button",
+  size: PaperSizes.Small,
+  type: PaperClasses.Secondary,
+  rounded: true
+};
+
+export const Success = Template.bind({});
+Success.args = {
+  disabled: false,
+  label: "Success Button",
+  size: PaperSizes.Small,
+  type: PaperClasses.Success,
+  rounded: true
 };
