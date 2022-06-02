@@ -1,5 +1,5 @@
 import React from "react";
-import "./button.scss";
+import "../../scss/styles.scss";
 import { ButtonBase, ButtonDefaults, ButtonPrefix, IntButton } from "../types";
 
 const Button: React.FC<IntButton> = ({
