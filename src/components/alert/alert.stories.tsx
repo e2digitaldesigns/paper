@@ -1,11 +1,11 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import Button from "./button";
+import Alert from "./alert";
 import { PaperClasses, PaperSizes } from "../types";
 
 export default {
-  title: "Paper/Buttons",
-  component: Button,
+  title: "Paper/Alerts",
+  component: Alert,
   argTypes: {
     size: {
       control: { type: "radio" },
@@ -20,41 +20,29 @@ export default {
     type: {
       control: { type: "select" },
       options: ["primary", "secondary", "success", "danger", "warning", "info"]
-    },
-
-    rounded: { control: "boolean" },
-
-    disabled: { control: "boolean" },
-
-    block: { control: "boolean" }
+    }
   }
-} as ComponentMeta<typeof Button>;
+} as ComponentMeta<typeof Alert>;
 
-const Template: ComponentStory<typeof Button> = args => <Button {...args} />;
+const Template: ComponentStory<typeof Alert> = args => <Alert {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  disabled: false,
-  label: "Primary Button",
+  children: "wth what the hell",
   size: PaperSizes.Small,
-  type: PaperClasses.Primary,
-  rounded: true
+  type: PaperClasses.Primary
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  disabled: false,
-  label: "Secondary Button",
+  children: "wth what the hell",
   size: PaperSizes.Small,
-  type: PaperClasses.Secondary,
-  rounded: true
+  type: PaperClasses.Secondary
 };
 
 export const Success = Template.bind({});
 Success.args = {
-  disabled: false,
-  label: "Success Button",
+  children: "wth what the hell",
   size: PaperSizes.Small,
-  type: PaperClasses.Success,
-  rounded: true
+  type: PaperClasses.Success
 };

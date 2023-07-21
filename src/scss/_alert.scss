@@ -1,0 +1,41 @@
+@use "sass:map";
+
+div.paper-alert {
+  position: relative;
+  padding: 1rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+
+  @each $class in $classes {
+    &.paper-alert-#{$class} {
+      color: map-deep-get($colorMap, $class, "fontColor");
+      background-color: map-deep-get($colorMap, $class, "bgColor");
+      border-color: map-deep-get($colorMap, $class, "borderColor");
+      &:hover {
+        background-color: map-deep-get($colorMap, $class, "bgHover");
+        border-color: map-deep-get($colorMap, $class, "borderHover");
+      }
+    }
+  }
+
+  &.paper-alert-xs {
+    border-radius: 2px;
+    padding: 5px;
+  }
+
+  &.paper-alert-sm {
+    border-radius: 3px;
+    padding: 9px;
+  }
+
+  &.paper-alert-md {
+    border-radius: 4px;
+    padding: 19px;
+  }
+
+  &.paper-alert-lg {
+    border-radius: 6px;
+    padding: 24px;
+  }
+}

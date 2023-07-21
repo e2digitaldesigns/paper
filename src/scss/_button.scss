@@ -19,8 +19,8 @@ button.paper-btn {
       background-color: map-deep-get($colorMap, $class, "bgColor");
       border-color: map-deep-get($colorMap, $class, "borderColor");
       &:hover {
-        background-color: map-deep-get($colorMap, $class, "bgColorHover");
-        border-color: map-deep-get($colorMap, $class, "borderColorHover");
+        background-color: map-deep-get($colorMap, $class, "bgHover");
+        border-color: map-deep-get($colorMap, $class, "borderHover");
       }
     }
   }
